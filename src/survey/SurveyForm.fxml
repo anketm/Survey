@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="survey.SurveyFormController">
+  <children>
+    <Button fx:id="submitBtn" layoutX="237.0" layoutY="485.0" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="108.0" text="Submit" />
+    <Label fx:id="label" layoutX="90.0" layoutY="539.0" minHeight="16.0" minWidth="69.0" prefHeight="17.0" prefWidth="226.0" />
+    <Label fx:id="psLabel" layoutX="83.0" layoutY="64.0" text="Ps.No" />
+    <Label fx:id="firstNameLabel" layoutX="69.0" layoutY="108.0" text="First Name" />
+    <Label fx:id="lastNameLabel" layoutX="71.0" layoutY="149.0" text="Last name" />
+    <Label fx:id="addressLabel" layoutX="77.0" layoutY="189.0" text="Address" />
+    <Label fx:id="cityLabel" layoutX="88.0" layoutY="231.0" text="City" />
+    <Label fx:id="mobileLabel" layoutX="80.0" layoutY="273.0" text="Mobile" />
+    <Label fx:id="emailLabel" layoutX="84.0" layoutY="317.0" text="Email" />
+    <Label fx:id="genderLabel" layoutX="79.0" layoutY="362.0" text="Gender" />
+    <Label layoutX="84.0" layoutY="405.0" text="KYC" />
+    <TextField fx:id="ps" layoutX="166.0" layoutY="60.0" />
+    <TextField fx:id="firstName" layoutX="166.0" layoutY="104.0" />
+    <TextField fx:id="lastName" layoutX="166.0" layoutY="145.0" />
+    <TextField fx:id="address" layoutX="166.0" layoutY="185.0" />
+    <TextField fx:id="mobile" layoutX="166.0" layoutY="271.0" />
+    <TextField fx:id="email" layoutX="166.0" layoutY="313.0" />
+    <ChoiceBox fx:id="city" layoutX="166.0" layoutY="227.0" prefWidth="150.0" />
+    <CheckBox fx:id="passport" layoutX="166.0" layoutY="404.0" mnemonicParsing="false" text="Passport" />
+    <CheckBox fx:id="pancard" layoutX="166.0" layoutY="429.0" mnemonicParsing="false" text="Pan Card" />
+    <CheckBox fx:id="adhar" layoutX="166.0" layoutY="454.0" mnemonicParsing="false" text="Adhar Card" />
+    <VBox layoutX="166.0" layoutY="351.0" prefHeight="41.0" prefWidth="145.0">
+      <fx:define>
+        <ToggleGroup fx:id="myToggleGroup" />
+      </fx:define>
+      <children>
+        <RadioButton text="Male" toggleGroup="$myToggleGroup" />
+        <RadioButton prefHeight="21.0" prefWidth="65.0" text="Female" toggleGroup="$myToggleGroup" />
+      </children>
+    </VBox>
+  </children>
+</AnchorPane>
