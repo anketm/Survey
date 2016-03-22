@@ -23,6 +23,7 @@ import survey.beans.RestRequest;
 
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyEvent;
+import org.apache.log4j.Logger;
 
 import survey.beans.RestResponse;
 import survey.client.ServiceClient;
@@ -37,6 +38,7 @@ import static survey.validations.FormValidation.textFieldNotEmpty;
  * @author anket
  */
 public class SurveyFormController implements Initializable {
+    final static Logger logger = Logger.getLogger(SurveyFormController.class);
     
     @FXML
     private Label label;
@@ -83,9 +85,10 @@ public class SurveyFormController implements Initializable {
     
     @FXML
     private void handleButtonAction(ActionEvent event) {
-        System.out.println("handleButtonAction called");
+        logger.info("HandleButtonAction Called");
         label.setText("");
         /* Validations for the form */
+        logger.info("Validation Start");
         if(!textFieldNotEmpty(ps,label,"Please Enter Ps Number.")||!textFieldNotEmpty(firstName,label,"Please Enter First Name.")||!textFieldNotEmpty(lastName,label,"Please Enter Last Name.")||!textFieldNotEmpty(address,label,"Please Enter Address.")||!choiceBoxSelected(city,label,"Please Select City.")||!textFieldNotEmpty(mobile,label,"Please Enter Mobile.")||!textFieldNotEmpty(email,label,"Please Enter Email.")||!emailTextField(email,label,"Please Enter Valid Email.")||!radioSelected((RadioButton)myToggleGroup.getSelectedToggle(),label,"Please Select Gender."))
         {
             return;
@@ -95,8 +98,10 @@ public class SurveyFormController implements Initializable {
             label.setText("Please Select Atleast One KYC.");
             return;
         }
+        logger.info("Validation End");
         /* Validation ends */
         /* Creating Request object */
+        logger.info("Create Request Object Start");
         RestRequest request;
         request = new RestRequest();
         request.setId(ps.getText());
@@ -126,8 +131,10 @@ public class SurveyFormController implements Initializable {
         sBuffer.append(" Adharcard");
         }
         request.setKyc(sBuffer.toString());
+        logger.info("Create Request Object Ends");
        /* Creating Request object ends*/
        /* Calling service */
+        logger.info("Calling Webservice");
         try {
            ServiceClient client = new ServiceClient();
         RestResponse res = client.callService(request);
@@ -137,6 +144,7 @@ public class SurveyFormController implements Initializable {
             e.getMessage();
             e.printStackTrace();
         }
+        logger.info("Calling Webservice Ends");
         /* Calling service ends */
     }
     
@@ -147,6 +155,7 @@ public class SurveyFormController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        logger.info("initialize called");
         city.setItems(list);
         city.getSelectionModel().selectFirst();
         ps.addEventFilter(KeyEvent.KEY_TYPED, numeric_Validation(8));
@@ -155,6 +164,7 @@ public class SurveyFormController implements Initializable {
         //address.addEventFilter(KeyEvent.KEY_TYPED, letter_special_Validation(50));
         mobile.addEventFilter(KeyEvent.KEY_TYPED, numeric_Validation(10));
         email.addEventFilter(KeyEvent.KEY_TYPED,email_Validation(25));
+        logger.info("initialize ends");
     }    
     
     /* Numeric Validation Limit the  characters to maxLengh AND to ONLY DigitS *************************************/

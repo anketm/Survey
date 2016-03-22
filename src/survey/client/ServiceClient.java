@@ -14,6 +14,7 @@ import javax.ws.rs.client.Invocation;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.UriBuilder;
+import org.apache.log4j.Logger;
 import org.glassfish.jersey.client.ClientConfig;
 import survey.beans.RestRequest;
 import survey.beans.RestResponse;
@@ -23,8 +24,9 @@ import survey.beans.RestResponse;
  * @author anket
  */
 public class ServiceClient {
-    
+    final static Logger logger = Logger.getLogger(ServiceClient.class);
     public RestResponse callService(RestRequest request){
+        logger.info("RestResponse Called");
         RestResponse res = null;
         try{
         ClientConfig config = new ClientConfig();
@@ -42,6 +44,7 @@ public class ServiceClient {
         {
           e.getMessage();
         }
+        logger.info("RestResponse Ends");
         return res;
     }
     

@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="Survey.jar" size="11397" download="eager" />
+    <jar href="Survey.jar" size="12490" download="eager" />
     <jar href="lib\aopalliance-repackaged-2.4.0-b34.jar" size="14766" download="eager" />
     <jar href="lib\asm-debug-all-5.0.4.jar" size="379036" download="eager" />
     <jar href="lib\gson-2.6.2.jar" size="229650" download="eager" />
@@ -40,6 +40,7 @@
     <jar href="lib\jersey-media-json-jackson-2.22.1.jar" size="21706" download="eager" />
     <jar href="lib\jersey-media-multipart-2.22.2.jar" size="67855" download="eager" />
     <jar href="lib\jersey-server.jar" size="951701" download="eager" />
+    <jar href="lib\log4j-1.2.17.jar" size="489883" download="eager" />
     <jar href="lib\mysql-connector-java-5.0.8-bin.jar" size="540852" download="eager" />
     <jar href="lib\org.osgi.core-4.2.0.jar" size="246924" download="eager" />
     <jar href="lib\osgi-resource-locator-1.0.1.jar" size="20235" download="eager" />
